@@ -14,4 +14,5 @@ carros[ "nome" ] = "Chev"
 console.log(carros.modelo)
 console.log(carros.nome)
 
+
 // for(carro in carros){ console.log(carro) }

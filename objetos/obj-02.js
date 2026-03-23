@@ -14,4 +14,3 @@ console.log("Nome do jogador: " + jogador.nome)
 console.log("Idade do jogador: " + jogador.idade)
 console.log("Nacionalidade do jogador: " + jogador.nacionalidade)
 console.log("Clube do jogador: " + jogador.clube)
-
