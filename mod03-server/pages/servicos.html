@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços | teleporco</title>
+    <style>
+        :root { --blue: #155eef; --dark: #082567; --pink: #f63384; --muted: #64748b; }
+        * { box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #eaf2ff, #fff 52%, #ffeaf4);
+            color: var(--dark);
+            font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            padding: 24px;
+        }
+        .page { margin: 0 auto; max-width: 1080px; }
+        header { align-items: center; display: flex; justify-content: space-between; margin-bottom: 70px; }
+        .brand { font-size: 1.3rem; font-weight: 900; }
+        .brand span { color: var(--pink); }
+        header a { color: var(--blue); font-weight: 800; text-decoration: none; }
+        .eyebrow { color: var(--pink); font-size: .8rem; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+        h1 { font-size: clamp(2.5rem, 7vw, 5rem); line-height: .95; margin: 16px 0 18px; }
+        h1 span { color: var(--pink); }
+        .intro { color: var(--muted); font-size: 1.1rem; line-height: 1.6; max-width: 600px; }
+        .service-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 42px; }
+        .tab-button { background: #fff; border: 2px solid #dbe5f4; border-radius: 7px; color: var(--dark); cursor: pointer; font: inherit; font-weight: 800; padding: 13px 17px; }
+        .tab-button[aria-selected="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
+        .service-panel { background: #fff; border: 1px solid #dbe5f4; border-left: 5px solid var(--pink); border-radius: 10px; margin-top: 18px; max-width: 720px; padding: 28px; }
+        .service-panel[hidden] { display: none; }
+        .service-panel h2 { margin: 0 0 10px; }
+        .service-panel p { color: var(--muted); line-height: 1.55; }
+        .service-panel form { display: grid; gap: 10px; margin-top: 20px; }
+        .service-panel label { font-weight: 800; }
+        .service-panel input, .service-panel select { border: 1px solid #cbd5e1; border-radius: 6px; font: inherit; padding: 12px; }
+        .service-panel button[type="submit"] { background: var(--pink); border: 0; border-radius: 7px; color: #fff; cursor: pointer; font-weight: 800; padding: 13px; }
+        .confirmation { color: var(--blue); font-weight: 800; min-height: 1.4em; }
+        @media (max-width: 700px) {
+            body { padding: 18px; }
+            header { margin-bottom: 48px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header>
+            <div class="brand">tele<span>porco</span></div>
+            <a href="/">Voltar para home</a>
+        </header>
+        <div class="eyebrow">Atendimento teleporco</div>
+        <h1>Tudo o que você<br><span>precisa em um só lugar.</span></h1>
+        <p class="intro">Escolha um serviço e fale com a nossa equipe. A teleporco deixa seus jogos e pagamentos mais rápidos, simples e seguros.</p>
+        <div class="service-tabs" role="tablist" aria-label="Serviços da teleporco">
+            <button class="tab-button" id="tab-jogos" type="button" role="tab" aria-selected="true" aria-controls="jogos">Faça seu jogo</button>
+            <button class="tab-button" id="tab-contas" type="button" role="tab" aria-selected="false" aria-controls="contas">Pague suas contas</button>
+            <button class="tab-button" id="tab-resultados" type="button" role="tab" aria-selected="false" aria-controls="resultados">Confira resultados</button>
+        </div>
+
+        <section class="service-panel" id="jogos" role="tabpanel" aria-labelledby="tab-jogos">
+            <h2>Faça seu jogo</h2>
+            <p>Escolha sua modalidade e informe seu nome para solicitar atendimento.</p>
+            <form data-service="jogo">
+                <label for="modalidade">Modalidade</label>
+                <select id="modalidade" required><option value="">Selecione</option><option>Mega-Sena</option><option>Lotofácil</option><option>Quina</option></select>
+                <label for="nome-jogo">Seu nome</label>
+                <input id="nome-jogo" required placeholder="Digite seu nome">
+                <button type="submit">Solicitar atendimento</button>
+                <div class="confirmation" aria-live="polite"></div>
+            </form>
+        </section>
+
+        <section class="service-panel" id="contas" role="tabpanel" aria-labelledby="tab-contas" hidden>
+            <h2>Pague suas contas</h2>
+            <p>Informe seu nome e o tipo de conta para receber orientação da equipe.</p>
+            <form data-service="conta">
+                <label for="tipo-conta">Tipo de conta</label>
+                <select id="tipo-conta" required><option value="">Selecione</option><option>Água</option><option>Luz</option><option>Telefone</option><option>Boleto</option></select>
+                <label for="nome-conta">Seu nome</label>
+                <input id="nome-conta" required placeholder="Digite seu nome">
+                <button type="submit">Solicitar pagamento</button>
+                <div class="confirmation" aria-live="polite"></div>
+            </form>
+        </section>
+
+        <section class="service-panel" id="resultados" role="tabpanel" aria-labelledby="tab-resultados" hidden>
+            <h2>Confira resultados</h2>
+            <p>Digite o número do concurso para solicitar a conferência do seu bilhete.</p>
+            <form data-service="resultado">
+                <label for="concurso">Número do concurso</label>
+                <input id="concurso" inputmode="numeric" required placeholder="Ex.: 2800">
+                <button type="submit">Conferir bilhete</button>
+                <div class="confirmation" aria-live="polite"></div>
+            </form>
+        </section>
+    </main>
+    <script>
+        const tabs = document.querySelectorAll('[role="tab"]')
+        const panels = document.querySelectorAll('[role="tabpanel"]')
+
+        function selecionarServico(id) {
+            tabs.forEach((tab) => {
+                const ativo = tab.getAttribute('aria-controls') === id
+                tab.setAttribute('aria-selected', ativo)
+            })
+            panels.forEach((panel) => {
+                panel.hidden = panel.id !== id
+            })
+        }
+
+        tabs.forEach((tab) => {
+            tab.addEventListener('click', () => selecionarServico(tab.getAttribute('aria-controls')))
+        })
+
+        document.querySelectorAll('form').forEach((form) => {
+            form.addEventListener('submit', (event) => {
+                event.preventDefault()
+                form.querySelector('.confirmation').textContent = 'Pedido recebido! Nossa equipe falará com você em breve.'
+                form.reset()
+            })
+        })
+
+        const servicoInicial = window.location.hash.slice(1)
+        if (['jogos', 'contas', 'resultados'].includes(servicoInicial)) selecionarServico(servicoInicial)
+    </script>
+</body>
+</html>

@@ -1,20 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sobre a teleporco | Lotérica</title>
+    <style>
+        :root {
+            --blue: #155eef;
+            --blue-dark: #082567;
+            --pink: #f63384;
+            --paper: #ffffff;
+            --muted: #64748b;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            align-items: center;
+            background: linear-gradient(135deg, #eaf2ff, #ffffff 52%, #ffeaf4);
+            color: var(--blue-dark);
+            display: flex;
+            font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+            justify-content: center;
+            margin: 0;
+            min-height: 100vh;
+            padding: 28px;
+        }
+
+        .about-page {
+            background: var(--paper);
+            border: 1px solid #dbe5f4;
+            border-radius: 18px;
+            box-shadow: 14px 14px 0 rgba(246, 51, 132, .16);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 980px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .about-content { padding: 60px 50px; }
+
+        .brand {
+            color: var(--blue-dark);
+            font-size: 1.2rem;
+            font-weight: 900;
+            letter-spacing: .04em;
+        }
+
+        .brand span { color: var(--pink); }
+
+        .eyebrow {
+            color: var(--pink);
+            font-size: .8rem;
+            font-weight: 900;
+            letter-spacing: .15em;
+            margin-top: 60px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(2.4rem, 5vw, 4.6rem);
+            line-height: .95;
+            margin: 16px 0 24px;
+        }
+
+        h1 span { color: var(--pink); }
+
+        p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 0 0 28px;
+        }
+
+        .services {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(3, 1fr);
+            margin: 30px 0;
+        }
+
+        .service {
+            border-left: 4px solid var(--pink);
+            padding-left: 10px;
+        }
+
+        .service strong {
+            display: block;
+            font-size: .9rem;
+        }
+
+        .service small { color: var(--muted); }
+
+        .button {
+            background: var(--blue);
+            border-radius: 8px;
+            color: var(--paper);
+            display: inline-block;
+            font-weight: 800;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .image-panel {
+            align-items: center;
+            background: var(--blue);
+            display: flex;
+            justify-content: center;
+            min-height: 540px;
+            padding: 35px;
+            position: relative;
+        }
+
+        .image-panel::before {
+            border: 2px solid rgba(255, 255, 255, .55);
+            border-radius: 50%;
+            content: "";
+            height: 330px;
+            position: absolute;
+            width: 330px;
+        }
+
+        .image-panel img {
+            border: 12px solid var(--paper);
+            border-radius: 50%;
+            box-shadow: 14px 14px 0 var(--pink);
+            max-width: 82%;
+            position: relative;
+            width: 360px;
+        }
+
+        @media (max-width: 720px) {
+            body { padding: 16px; }
+            .about-page { grid-template-columns: 1fr; }
+            .about-content { padding: 35px 26px; }
+            .eyebrow { margin-top: 40px; }
+            .image-panel { min-height: 330px; }
+            .services { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-        <h2>Somos uma loja de serviços necessários, como:<br>
-  <ul>
-    <li>Guincho</li>
-    <li>Chaveiro</li>
-    <li>Mecânica</li>
-    <li>Borracheiro</li>
-    <li>Encanador</li>
-    <li>Eletricista</li>
-  </ul>
- </h2> 
+    <main class="about-page">
+        <section class="about-content">
+            <div class="brand">tele<span>porco</span></div>
+            <div class="eyebrow">Sobre a nossa lotérica</div>
+            <h1>Sorte com<br><span>personalidade.</span></h1>
+            <p>A teleporco nasceu para deixar seus jogos, pagamentos e resultados mais simples. Aqui você encontra atendimento próximo, agilidade e uma boa dose de bom humor.</p>
+
+            <div class="services">
+                <div class="service"><strong>Jogos</strong><small>Suas modalidades favoritas</small></div>
+                <div class="service"><strong>Contas</strong><small>Pagamentos em um só lugar</small></div>
+                <div class="service"><strong>Prêmios</strong><small>Conferência rápida</small></div>
+            </div>
+
+            <a class="button" href="/">Voltar para a home</a>
+        </section>
+        <section class="image-panel">
+            <img src="/image/image.png" alt="Mascote rosa da teleporco">
+        </section>
+    </main>
 </body>
 </html>
+</body>
+</html>
+
