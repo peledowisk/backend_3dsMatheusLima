@@ -1,18 +1,12 @@
 import express from 'express'
-
+import path from 'path' // resolver conflitos de pasta
 const PORT = 3000
 const app = express()
+// Usar Middleware (software guardião)
+app.use(express.static(path.join(import.meta.dirname, 'public')))
 
 app.get('/',(req, res) => {
-    res.send('<h3>Hello Pet!</h3>')
-}) // callback ou retorno
-
-app.get('/servicos',(req, res) => {// callback ou retorno
-    res.send('<h3>Servicos Pet!</h3>')
-}) 
-
-app.get('/produtos',(req, res) => {// callback ou retorno
-    res.send('<h3>Produtos Pet!</h3>')
+    res.send('src/pages/index.html', {root:import.meta.dirname})
 })
 
 app.listen(PORT, () => {console.log('Servidor vivo!')})
