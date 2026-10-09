@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Notícias, análises, guias e jogos para descobrir no Player One.">
+    <meta name="theme-color" content="#0b0a12">
+    <link rel="stylesheet" href="/index.css">
+    <script src="/app.js" defer></script>
+    <title>Player One — Portal gamer</title>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navigation wrap" aria-label="Navegação principal">
+            <a class="brand" href="/" aria-label="Player One, início">
+                <span class="brand-mark">P1</span>
+                <span>PLAYER<span class="brand-accent">ONE</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Início</a>
+                <a href="/produtos">Produtos</a>
+                <a href="/sobre">Sobre</a>
+                <a href="/contato">Contato</a>
+            </div>
+            <div class="nav-actions">
+                <button class="icon-button theme-toggle" type="button" aria-label="Ativar modo claro" title="Alternar tema"><span aria-hidden="true">☼</span></button>
+                <button class="button button-small account-button" type="button" data-auth-open>Entrar <span aria-hidden="true">↗</span></button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="inicio">
+        <section class="hero wrap">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="status-dot"></span> UM PORTAL. TODO O UNIVERSO GAMER.</p>
+                <h1>O próximo<br>nível é <span>seu.</span></h1>
+                <p class="hero-description">Notícias, análises e descobertas para quem não joga só para passar o tempo — joga para viver novas histórias.</p>
+                <a class="button button-primary" href="#noticias">Descobrir novidades <span aria-hidden="true">→</span></a>
+                <div class="hero-meta"><span class="live-dot"></span> Seu próximo favorito está por aqui</div>
+            </div>
+            <div class="hero-art" aria-label="Ilustração de acessórios gamer neon">
+                <div class="art-glow"></div>
+                <img src="/image.png" alt="Monitor, controle e fones de ouvido gamer iluminados em neon">
+                <span class="art-tag">PLAYER 1 READY</span>
+                <div class="art-caption"><span>✦</span><span><strong>Player One</strong><small>Feito para quem vive mais de uma vida.</small></span></div>
+            </div>
+            <a class="hero-scroll" href="#noticias">ROLE PARA EXPLORAR <span aria-hidden="true">↓</span></a>
+        </section>
+
+        <section class="content-section wrap" id="noticias">
+            <div class="section-heading">
+                <div><p class="eyebrow">NA SUA PRÓXIMA MISSÃO</p><h2>Histórias que <span>valem o play.</span></h2></div>
+                <span class="section-aside">LEITURA + GAMEPLAY</span>
+            </div>
+            <div class="article-grid" id="article-list" aria-live="polite">
+                <p class="loading-message">Carregando as últimas histórias...</p>
+            </div>
+        </section>
+
+        <section class="content-section library-section" id="biblioteca">
+            <div class="wrap">
+                <div class="section-heading">
+                    <div><p class="eyebrow">SEU PRÓXIMO FAVORITO</p><h2>Explore a <span>biblioteca.</span></h2></div>
+                    <p class="section-description">Descubra jogos e confira ficha técnica e nota da comunidade.</p>
+                </div>
+                <form class="filters" id="game-filters">
+                    <label class="search-field"><span aria-hidden="true">⌕</span><span class="sr-only">Buscar por jogo, estúdio ou gênero</span><input name="q" type="search" placeholder="Buscar jogo, estúdio ou gênero..." autocomplete="off"></label>
+                    <label><span class="sr-only">Plataforma</span><select name="platform"><option value="">Todas as plataformas</option><option>PC</option><option>PlayStation 5</option><option>Xbox Series X|S</option><option>Nintendo Switch</option></select></label>
+                    <label><span class="sr-only">Gênero</span><select name="genre"><option value="">Todos os gêneros</option><option>RPG</option><option>Ação</option><option>Aventura</option><option>Roguelike</option><option>Simulação</option></select></label>
+                    <label><span class="sr-only">Ano de lançamento</span><select name="year"><option value="">Qualquer ano</option><option>2025</option><option>2024</option><option>2022</option><option>2020</option><option>2016</option></select></label>
+                    <label><span class="sr-only">Nota mínima da comunidade</span><select name="minScore"><option value="">Qualquer nota</option><option value="9">9 ou mais</option><option value="8">8 ou mais</option><option value="7">7 ou mais</option></select></label>
+                </form>
+                <div class="library-meta"><p id="game-count" aria-live="polite">Carregando jogos...</p><span>NOTA DOS JOGADORES · 0–10</span></div>
+                <div class="game-grid" id="game-list" aria-live="polite"><p class="loading-message">Carregando biblioteca...</p></div>
+            </div>
+        </section>
+
+        <section class="profile-section wrap" id="perfil" hidden>
+            <div class="section-heading">
+                <div><p class="eyebrow">SEU CANTINHO NO PLAYER ONE</p><h2>Perfil de <span id="profile-name">jogador.</span></h2></div>
+                <button class="button button-small button-outline" id="logout-button" type="button">Sair da conta</button>
+            </div>
+            <div class="profile-stats" id="profile-stats"></div>
+            <div class="profile-columns">
+                <section><h3>Minha lista de desejos</h3><div id="wishlist-list"></div></section>
+                <section><h3>Jogos jogados</h3><div id="played-list"></div></section>
+                <section><h3>Conquistas</h3><div class="badge-list" id="achievement-list"></div></section>
+            </div>
+            <button class="text-button danger-button" id="delete-account" type="button">Excluir minha conta e meus dados</button>
+        </section>
+
+        <section class="community-banner wrap" id="sobre">
+            <span class="community-mark" aria-hidden="true">P1</span>
+            <div><p class="eyebrow">GG, VOCÊ CHEGOU AO SEU LUGAR</p><h2>Mais que jogar.<br><span>Fazer parte.</span></h2></div>
+            <p>Monte sua lista, compartilhe sua opinião e encontre sua próxima aventura.</p>
+            <button class="button button-outline" type="button" data-auth-open>Criar meu perfil <span aria-hidden="true">→</span></button>
+        </section>
+    </main>
+
+    <footer class="site-footer wrap" id="contato">
+        <a class="brand" href="/"><span class="brand-mark">P1</span><span>PLAYER<span class="brand-accent">ONE</span></span></a>
+        <p>Feito por gamers, para gamers. © 2026 Player One</p>
+        <nav class="social-links" aria-label="Redes sociais">
+            <a href="https://instagram.com/playerone_gaming" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://tiktok.com/@playerone_gaming" target="_blank" rel="noopener noreferrer">TikTok</a>
+            <a href="https://youtube.com/@playerone_gaming" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </nav>
+        <button class="text-button" type="button" data-privacy-open>Aviso de privacidade</button>
+        <a class="back-top" href="/">Voltar ao topo ↑</a>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <dialog class="site-dialog" id="auth-dialog" aria-labelledby="auth-title">
+        <button class="dialog-close" type="button" data-dialog-close aria-label="Fechar">×</button>
+        <p class="eyebrow">PLAYER ONE · COMUNIDADE</p>
+        <h2 id="auth-title">Bora jogar?</h2>
+        <div class="auth-tabs" role="tablist" aria-label="Acesso à conta">
+            <button type="button" class="auth-tab is-active" role="tab" aria-selected="true" data-auth-tab="login">Entrar</button>
+            <button type="button" class="auth-tab" role="tab" aria-selected="false" data-auth-tab="register">Criar conta</button>
+        </div>
+        <form id="auth-form">
+            <label class="form-label" id="username-label" hidden>Nome de jogador<input name="username" minlength="3" maxlength="24" autocomplete="nickname" placeholder="Como te chamam no jogo?"></label>
+            <label class="form-label">E-mail<input name="email" type="email" required maxlength="254" autocomplete="email" placeholder="voce@email.com"></label>
+            <label class="form-label">Senha<input name="password" type="password" required minlength="10" maxlength="128" autocomplete="current-password" placeholder="Mínimo de 10 caracteres"></label>
+            <label class="consent-label" id="consent-label" hidden><input name="consent" type="checkbox"><span>Li e aceito o <button class="inline-button" type="button" data-privacy-open>Aviso de privacidade</button> e o tratamento dos meus dados para manter minha conta e minhas listas.</span></label>
+            <p class="form-error" id="auth-error" role="alert"></p>
+            <button class="button button-primary form-submit" type="submit">Entrar <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="dialog-note">Suas senhas são armazenadas com hash. O login social ainda não está disponível nesta versão.</p>
+    </dialog>
+
+    <dialog class="site-dialog article-dialog" id="article-dialog" aria-labelledby="article-title">
+        <button class="dialog-close" type="button" data-dialog-close aria-label="Fechar">×</button>
+        <div id="article-content"></div>
+    </dialog>
+
+    <dialog class="site-dialog privacy-dialog" id="privacy-dialog" aria-labelledby="privacy-title">
+        <button class="dialog-close" type="button" data-dialog-close aria-label="Fechar">×</button>
+        <p class="eyebrow">SEUS DADOS, SUAS ESCOLHAS</p>
+        <h2 id="privacy-title">Aviso de privacidade</h2>
+        <p>Esta versão guarda seu e-mail, nome de jogador, senha protegida por hash, avaliações, listas, leituras e comentários em um arquivo local do servidor. Os dados são usados para manter sua conta e as funcionalidades da comunidade.</p>
+        <p>Você pode excluir sua conta e os dados associados pelo seu perfil. Este protótipo ainda não possui fluxo de consentimento para newsletter, login social, HTTPS configurado ou backups automáticos. Não use dados reais nesta demonstração.</p>
+        <button class="button button-outline" type="button" data-dialog-close>Entendi</button>
+    </dialog>
+</body>
+</html>

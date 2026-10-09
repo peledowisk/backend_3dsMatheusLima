@@ -1,0 +1,17 @@
+{
+  "name": "player-one-portal",
+  "version": "1.0.0",
+  "description": "Portal gamer com catálogo, avaliações e comunidade.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
