@@ -11,15 +11,15 @@ app.get('/', (req, res) => {//callback ou retorno
     res.sendFile('src/paginas/index.html', {root: baseDir})
 })
 
-app.get('/', (req, res) => {//callback ou retorno 
+app.get('/contato', (req, res) => {//callback ou retorno 
     res.sendFile('src/paginas/contato.html', {root: baseDir})
 })
 
-app.get('/', (req, res) => {//callback ou retorno 
+app.get('/produtos', (req, res) => {//callback ou retorno 
     res.sendFile('src/paginas/produtos.html', {root: baseDir})
 })
 
-app.get('/', (req, res) => {//callback ou retorno 
+app.get('/sobre', (req, res) => {//callback ou retorno 
     res.sendFile('src/paginas/sobre.html', {root: baseDir})
 })
 
